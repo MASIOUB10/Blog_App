@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>My Posts</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+</head>
+<body class="font-Poppins bg-white h-screen mx-4">
+
+    <header class="container mx-auto py-2">
+        <nav class="flex justify-between items-center w-[92%] mx-auto ">
+            <div class="">
+                <img class="w-26 h-10 cursor-pointer" src="./Src/Logo-removebg-preview.png" alt="..."/>
+            </div>
+            <div class="nav-links duration-500 md:static absolute bg-transparant bg-opacity-90 md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
+                <div class="">
+                    <button id="add-post-button" class="bg-blue-500 mt-4 hover:bg-blue-700 text-white font-bold  px-4 rounded mb-4 py-2 mr-6">Add Post</button>
+                </div>
+                <div class="search  flex items-center py-2 w-56 rounded-3xl bg-gray-300">
+                    <span class="searchIcon material-symbols-outlined ml-2 ">search</span>
+                    <input type="search" class="inputSearch ml-2 border-none w-50  outline-none border-none bg-gray-300 w-30" placeholder="search">
+                </div>
+            </div>
+           
+            
+        </nav>
+
+        
+        
+
+        
+    </header>    
+    <h1 class="text-3xl mx-10 mb-4 font-bold">Featured Posts</h1>
+    <div  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-10 mb-24">
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md cursor-pointer"><img src="https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/BCDB/production/_133174384_gettyimages-1297488348.jpg" alt="Post Image" class="w-full h-48 object-cover rounded-md mb-4"><h3 class="text-lg font-semibold mb-2">jnnj</h3><p class="text-gray-700 mb-4">jk</p><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Edit</button><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button></div>
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md cursor-pointer"><img src="https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/BCDB/production/_133174384_gettyimages-1297488348.jpg" alt="Post Image" class="w-full h-48 object-cover rounded-md mb-4"><h3 class="text-lg font-semibold mb-2">jnnj</h3><p class="text-gray-700 mb-4">jk</p><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Edit</button><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button></div>
+        <div class="bg-gray-100 p-4 rounded-lg shadow-md cursor-pointer"><img src="https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/BCDB/production/_133174384_gettyimages-1297488348.jpg" alt="Post Image" class="w-full h-48 object-cover rounded-md mb-4"><h3 class="text-lg font-semibold mb-2">jnnj</h3><p class="text-gray-700 mb-4">jk</p><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Edit</button><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button></div>
+    </div>
+    
+
+
+    
+    
+        <!-- Posts Container -->
+    <h1 class="text-3xl font-bold mx-10 mb-4">Recent Posts</h1>
+    <div id="posts" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-10">
+            <!-- Posts will be dynamically added here -->
+    </div>
+    
+
+    <!-- Post Modal -->
+    <div id="post-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white p-6 rounded-lg w-96">
+            <h2 class="text-xl font-bold mb-4">Add New Post</h2>
+            <input type="text" id="post-title" class="w-full border-gray-300 rounded-md p-2 mb-4" placeholder="Title">
+            <input type="text" id="post-description" class="w-full border-gray-300 rounded-md p-2 mb-4" placeholder="Description">
+            <input type="url" id="post-image-url" class="w-full border-gray-300 rounded-md p-2 mb-4" placeholder="Image URL">
+            <div class="flex justify-end">
+                <button id="save-post" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Save</button>
+                <button id="close-modal" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js">
+         
+        
+    </script>
+</body>
+</html>

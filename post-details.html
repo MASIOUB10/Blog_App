@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+<body class="font-Poppins bg-white h-screen mx-4">
+    <div class="container mx-auto py-8">
+        <div class="flex justify-between">
+            <span class="material-symbols-outlined" > arrow_back_ios</span>
+            <h1 class="text-3xl font-bold mb-6 ">Post Details</h1>
+        </div>
+        
+        <div id="post-details" class="bg-gray-100 p-4 rounded-lg shadow-md">
+            <h2 id="post-title" class="text-xl font-semibold mb-2"></h2>
+            <img id="post-image" class="w-full  object-cover rounded-md mb-4" alt="Post Image">
+            <p id="post-description" class="text-gray-700"></p>
+            <!-- Like button -->
+            <button id="like-button" class="like-button mt-4">
+                <i id="like-icon" class="far fa-heart"></i> Like
+            </button>
+        </div>
+
+        <!-- Add comment section -->
+        <div class="mt-8">
+            <input type="text" id="comment-input" class="w-full border-gray-300 rounded-md p-2 mb-2" placeholder="Add a comment...">
+            <button id="submit-comment" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+        </div>
+
+        <!-- Comment display section -->
+        <div id="comment-section" class="mt-8">
+            <!-- Comments specific to the selected post will be displayed here -->
+        </div>
+    </div>
+
+    <script src="post-details.js">
+        
+    </script>
+</body>
+</html>
