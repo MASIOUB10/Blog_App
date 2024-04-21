@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,18 +11,18 @@
 </head>
 <body class="font-Poppins bg-white h-screen mx-4">
 
-    <header class="container mx-auto py-2">
-        <nav class="flex justify-between items-center w-[92%] mx-auto ">
+    <header class="container  mt-2  mb-8 ">
+        <nav class="flex justify-between items-center w-[92%] lg:mx-16 md:mx-8 mx-3 lg:gap-12 md:gap-8 gap-4  ">
             <div class="">
-                <img class="w-26 h-10 cursor-pointer" src="./Src/Logo-removebg-preview.png" alt="..."/>
+                <img class="w-26 h-10  cursor-pointer" src="./Src/Logo-removebg-preview.png" alt="..."/>
             </div>
-            <div class="nav-links duration-500 md:static absolute bg-transparant bg-opacity-90 md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
+            <div class="nav-links duration-500   bg-transparant bg-opacity-90  lg:w-auto  md:w-auto w-full flex items-center gap-4  ">
                 <div class="">
-                    <button id="add-post-button" class="bg-blue-500 mt-4 hover:bg-blue-700 text-white font-bold  px-4 rounded mb-4 py-2 mr-6">Add Post</button>
+                    <button id="add-post-button" class="bg-blue-500 mt-4 hover:bg-blue-700 text-white font-semibold  px-2 rounded mb-4 py-1 ">Add Post</button>
                 </div>
-                <div class="search  flex items-center py-2 w-56 rounded-3xl bg-gray-300">
+                <div class="search  flex items-center py-2 w-56  rounded-3xl bg-gray-300 ">
                     <span class="searchIcon material-symbols-outlined ml-2 ">search</span>
-                    <input type="search" class="inputSearch ml-2 border-none w-50  outline-none border-none bg-gray-300 w-30" placeholder="search">
+                    <input type="search" class="inputSearch ml-2 border-none   outline-none border-none bg-gray-300 w-20" placeholder="search">
                 </div>
             </div>
            
@@ -47,7 +47,7 @@
     
         <!-- Posts Container -->
     <h1 class="text-3xl font-bold mx-10 mb-4">Recent Posts</h1>
-    <div id="posts" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-10">
+    <div id="posts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-10">
             <!-- Posts will be dynamically added here -->
     </div>
     
@@ -71,4 +71,33 @@
         
     </script>
 </body>
+<hr class="w-full mt-5 border-blue-300 border-2 " />
+<footer class="ftr ">
+  <div
+    class="flex flex-col justify-center items-center lg:flex lg:flex-row lg:justify-between md:flex md:flex-row md:justify-between  md:mx-1 bg-gray-800"
+  >
+    <img class="w-34 h-12 mb-4"  src="Src/Logo-removebg-preview.png" alt="... md:" />
+    <ul
+      class="flex flex-col items-center gap-4 justify-center lg:flex-row lg:items-center lg:text-center md:flex-row md:items-center md:text-center "
+    >
+      <li>
+        <a class="text-white" href="#">Terms and conditions</a>
+      </li>
+      <li>
+        <a class="text-white" href="#">Legal notices</a>
+      </li>
+      <li>
+        <a class="text-white" href="#">Private data</a>
+      </li>
+      
+      
+    </ul>
+    <a
+      href="#"
+      class="text-gray-500 text-xs flex-row items-center transition hover:opacity-75 mt-6 lg:mt-0 md:mt-0"
+    >
+      Copyright © 2024 - InKloom
+    </a>
+  </div>
+</footer>
 </html>

@@ -1,5 +1,3 @@
-
-         
 // Display posts from local storage
 function displayPosts() {
     const postsContainer = document.getElementById('posts');
@@ -46,15 +44,21 @@ function displayPosts() {
 }
 
 // Function to open the add post modal
+
 function openModal() {
+    
     document.getElementById('post-modal').classList.remove('hidden');
 }
 
 // Function to close the add post modal
 function closeModal() {
+    document.getElementById('post-title').value = '';
+    document.getElementById('post-description').value = '';
+    document.getElementById('post-image-url').value = '';
     document.getElementById('post-modal').classList.add('hidden');
 }
 
+// Function to save a new post
 // Function to save a new post
 function savePost() {
     const title = document.getElementById('post-title').value;
@@ -63,14 +67,19 @@ function savePost() {
 
     if (title.trim() !== '' && description.trim() !== '' && imageUrl.trim() !== '') {
         const posts = JSON.parse(localStorage.getItem('posts')) || [];
-        posts.push({ title, description, imageUrl });
+        const newPost = { title, description, imageUrl };
+
+        // Prepend the new post to the beginning of the posts array
+        posts.unshift(newPost);
+
         localStorage.setItem('posts', JSON.stringify(posts));
-        displayPosts();
+        displayPosts(posts);
         closeModal();
     } else {
         alert('Please fill out all fields');
     }
 }
+
 
 // Function to navigate to post details page
 function navigateToDetails(index) {
@@ -125,6 +134,15 @@ function deletePost(index) {
         displayPosts();
     
 }
+// Get the search input element
+const searchInput = document.querySelector('.inputSearch');
+
+// Add event listener to detect changes in the search input value
+searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.trim().toLowerCase();
+    filterPosts(searchTerm);
+});
+
 
 // Event listeners
 document.getElementById('add-post-button').addEventListener('click', openModal);
