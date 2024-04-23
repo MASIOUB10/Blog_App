@@ -8,7 +8,7 @@ function displayPosts() {
     posts.forEach((post, index) => {
         const postCard = document.createElement('div');
         postCard.classList.add('bg-gray-100', 'p-4', 'rounded-lg', 'shadow-md', 'cursor-pointer');
-        postCard.addEventListener('click', () => navigateToDetails(index)); // Add click event listener
+        postCard.addEventListener('click', () => navigateToDetails(index)); 
 
         const image = document.createElement('img');
         image.src = post.imageUrl;
@@ -58,7 +58,7 @@ function closeModal() {
     document.getElementById('post-modal').classList.add('hidden');
 }
 
-// Function to save a new post
+
 // Function to save a new post
 function savePost() {
     const title = document.getElementById('post-title').value;
@@ -68,10 +68,7 @@ function savePost() {
     if (title.trim() !== '' && description.trim() !== '' && imageUrl.trim() !== '') {
         const posts = JSON.parse(localStorage.getItem('posts')) || [];
         const newPost = { title, description, imageUrl };
-
-        // Prepend the new post to the beginning of the posts array
         posts.unshift(newPost);
-
         localStorage.setItem('posts', JSON.stringify(posts));
         displayPosts(posts);
         closeModal();
@@ -81,10 +78,10 @@ function savePost() {
 }
 
 
-// Function to navigate to post details page
+//  navigate to post details page
 function navigateToDetails(index) {
     localStorage.setItem('selectedPostIndex', index);
-    window.location.href = 'post-details.html'; // Navigate to the details page
+    window.location.href = 'post-details.html'; // 
 }
 
 // Function to edit a post
@@ -94,19 +91,19 @@ function editPost(event, index) {
     const posts = JSON.parse(localStorage.getItem('posts')) || [];
     const postToEdit = posts[index];
 
-    // Set values in the modal
+    // Set data in the modal
     document.getElementById('post-title').value = postToEdit.title;
     document.getElementById('post-description').value = postToEdit.description;
     document.getElementById('post-image-url').value = postToEdit.imageUrl;
 
     // Save edited post when "Save" button is clicked
     const saveButton = document.getElementById('save-post');
-    saveButton.removeEventListener('click', savePost); // Remove previous event listener
+    saveButton.removeEventListener('click', savePost); 
     saveButton.addEventListener('click', () => saveEditedPost(index));
     openModal();
 }
 
-// Function to save edited post
+//  save edited post
 function saveEditedPost(index) {
     const title = document.getElementById('post-title').value;
     const description = document.getElementById('post-description').value;
@@ -123,28 +120,19 @@ function saveEditedPost(index) {
     }
 }
 
-// Function to delete a post
-function deletePost(index) {
-    
-
-    
+// delete a post
+function deletePost(index,event) {
         const posts = JSON.parse(localStorage.getItem('posts')) || [];
         posts.splice(index, 1);
+        
         localStorage.setItem('posts', JSON.stringify(posts));
         displayPosts();
+        event.stopPropagation();
     
 }
-// Get the search input element
-const searchInput = document.querySelector('.inputSearch');
-
-// Add event listener to detect changes in the search input value
-searchInput.addEventListener('input', () => {
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    filterPosts(searchTerm);
-});
 
 
-// Event listeners
+
 document.getElementById('add-post-button').addEventListener('click', openModal);
 document.getElementById('save-post').addEventListener('click', savePost);
 document.getElementById('close-modal').addEventListener('click', closeModal);
