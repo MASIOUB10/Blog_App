@@ -14,7 +14,7 @@ document.getElementById('submit-comment').addEventListener('click', function() {
         localStorage.setItem('posts', JSON.stringify(posts));
         document.getElementById('comment-input').value = '';
 
-        displayComments(selectedPost.comments); 
+        displayComments(selectedPost.comments); // Display comments for the selected post
     }
 });
 
@@ -42,31 +42,40 @@ function displayPostDetails() {
 
     const likeButton = document.getElementById('like-button');
     const likeIcon = document.getElementById('like-icon');
+
+    // Retrieve like status from localStorage
     let isLiked = localStorage.getItem(`post-${selectedPostIndex}-liked`) === 'true';
 
     // Update like icon based on the liked status
     if (isLiked) {
         likeIcon.classList.remove('far');
         likeIcon.classList.add('fas');
+    } else {
+        likeIcon.classList.remove('fas');
+        likeIcon.classList.add('far');
     }
 
     function toggleLike() {
         isLiked = !isLiked;
         if (isLiked) {
             likeIcon.classList.remove('far');
-            likeIcon.classList.add('fas');
+            likeIcon.classList.add('fas','text-red-500');
         } else {
-            likeIcon.classList.remove('fas');
+            likeIcon.classList.remove('fas' , 'text-red-500');
             likeIcon.classList.add('far');
         }
 
+        // Update like status in localStorage
         localStorage.setItem(`post-${selectedPostIndex}-liked`, isLiked);
     }
 
     likeButton.addEventListener('click', toggleLike);
 
+
+
     // Display comments for the selected post
     displayComments(selectedPost.comments || []);
 }
 
+// Call displayPostDetails function to display post details and associated comments
 displayPostDetails();

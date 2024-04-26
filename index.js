@@ -14,6 +14,7 @@ function displayPosts() {
     const posts = JSON.parse(localStorage.getItem('posts')) || [];
 
     posts.forEach((post, index) => {
+        
         const postCard = document.createElement('div');
         postCard.id = `post-${index}`;
         postCard.classList.add('bg-gray-100', 'p-4', 'rounded-lg', 'shadow-md', 'cursor-pointer');
@@ -80,7 +81,7 @@ function savePost() {
 
     if (title.trim() !== '' && description.trim() !== '' && imageUrl.trim() !== '') {
         const posts = JSON.parse(localStorage.getItem('posts')) || [];
-        const newPost = { title, description, imageUrl };
+        const newPost = { title, description, imageUrl, liked: false }; 
         posts.unshift(newPost);
         localStorage.setItem('posts', JSON.stringify(posts));
         
@@ -195,8 +196,6 @@ function displaySearchResults(results) {
     results.forEach(post => {
         const postCard = document.createElement('div');
         postCard.classList.add('bg-gray-100', 'p-4', 'rounded-lg', 'shadow-md', 'cursor-pointer');
-                postCard.addEventListener('click', () => navigateToDetails(index));
-
 
         const image = document.createElement('img');
         image.src = post.imageUrl;
