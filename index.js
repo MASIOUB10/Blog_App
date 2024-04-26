@@ -19,6 +19,7 @@ function displayPosts() {
         postCard.id = `post-${index}`;
         postCard.classList.add('bg-gray-100', 'p-4', 'rounded-lg', 'shadow-md', 'cursor-pointer');
         postCard.addEventListener('click', () => navigateToDetails(index));
+
         const image = document.createElement('img');
         image.src = post.imageUrl;
         image.alt = 'Post Image';
@@ -58,8 +59,6 @@ function displayPosts() {
         postsContainer.appendChild(postCard);
     });
 }
-
-
 
 
 function openModal() {
@@ -149,23 +148,21 @@ function deletePost(event, index) {
 
     // Check if there are any remaining posts
     if (posts.length === 0) {
-        // If no posts left, stay on the same page
         displayPosts();
     } else {
         const selectedIndex = parseInt(localStorage.getItem('selectedPostIndex'));
-        // Check if the deleted post was the last post
+        
         if (index === posts.length) {
             // If the deleted post was the last one, update the selected index to the previous post
             localStorage.setItem('selectedPostIndex', index - 1);
         }
-        // Display posts with the updated selected index
         displayPosts();
     }
 }
 
 // Function to handle search
 function handleSearch() {
-    const searchInput = document.querySelector('.inputSearch').value.trim().toLowerCase(); // Trim whitespace and convert to lowercase
+    const searchInput = document.querySelector('.inputSearch').value.trim().toLowerCase(); 
     const posts = JSON.parse(localStorage.getItem('posts')) || [];
 
     if (searchInput === '') {
@@ -176,7 +173,7 @@ function handleSearch() {
     } else {
         // Perform search and display search results
         const searchResults = posts.filter(post => {
-            // Convert post title and description to lowercase for case-insensitive search
+            
             const postTitle = post.title.toLowerCase();
             const postDescription = post.description.toLowerCase();
             // Check if search query matches post title or description
@@ -217,24 +214,20 @@ function displaySearchResults(results) {
         searchResultsContainer.appendChild(postCard);
     });
 
-    // Show the section containing search results
+    
     searchResultsContainer.classList.remove('hidden');
-    // Hide the sections containing featured and recent posts
+    
     document.getElementById('featured-posts').classList.add('hidden');
     document.getElementById('posts').classList.add('hidden');
     if (window.innerWidth >= 768) {
-        searchResultsContainer.classList.add('grid', 'grid-cols-1','mx-12', 'lg:grid-cols-3', 'xl:grid-cols-4', 'gap-4'); // Add Tailwind CSS grid classes for larger screens
+        searchResultsContainer.classList.add('grid', 'grid-cols-1','mx-12', 'lg:grid-cols-3', 'xl:grid-cols-4', 'gap-4'); 
     }
 
 }
 
-
-
-// Event listeners
 document.getElementById('add-post-button').addEventListener('click', openModal);
 document.getElementById('save-post').addEventListener('click', savePost);
 document.querySelector('.inputSearch').addEventListener('input', handleSearch);
 document.getElementById('close-modal').addEventListener('click', closeModal);
 
-// Display existing posts on page load
 displayPosts();
